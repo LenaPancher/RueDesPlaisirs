@@ -58,4 +58,11 @@ public class ArticleController {
         articleDao.edit(article, id);
         return "redirect:/articles";
     }
+    
+    @RequestMapping(value = "article/delete/{id}", method = RequestMethod.GET)
+    public String articleDelete(@PathVariable int id) {
+        int article = articleDao.delete(id);
+
+        return "redirect:/articles";
+    }
 }
