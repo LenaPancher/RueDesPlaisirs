@@ -29,4 +29,9 @@ public class ArticleDao {
         String sql = "INSERT INTO article (name, description, url_image, price, category_id) VALUES (?, ?, ?, ?, ?);";
         return jdbcTemplate.update(sql, article.getName(), article.getDescription(), article.getUrl_image(), article.getPrice(), article.getCategory_id());
     }
+
+    public Article show(int id){
+        String sql = "SELECT * FROM article WHERE id=?";
+        return jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Article.class), id);
+    }
 }
