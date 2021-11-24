@@ -47,4 +47,15 @@ public class ArticleController {
         model.addAttribute("article", article);
         return "article/show";
     }
+
+    @RequestMapping(value = "article/edit/{id}", method = RequestMethod.GET)
+    public String editForm(@PathVariable int id, Model model) {
+        model.addAttribute("article", articleDao.show(id));
+        return "article/edit";
+    }
+    @RequestMapping(value = "article/edit/{id}", method = RequestMethod.POST)
+    public String editArticle(@ModelAttribute Article article, @PathVariable int id) {
+        articleDao.edit(article, id);
+        return "redirect:/articles";
+    }
 }

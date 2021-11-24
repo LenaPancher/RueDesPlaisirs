@@ -55,7 +55,7 @@
                             <td th:text="${article.id}"></td>
                             <td>
                                 <a th:href="'/articles/article/' + ${article.id}">Voir plus</a>
-                                <a href="">Modifier</a>
+                                <a th:href="'/articles/article/edit/' + ${article.id}">Modifier</a>
                                 <a href="">Supprimer</a>
                             </td>
                         </tr>

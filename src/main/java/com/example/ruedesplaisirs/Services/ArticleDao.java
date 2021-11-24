@@ -6,7 +6,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -34,4 +33,12 @@ public class ArticleDao {
         String sql = "SELECT * FROM article WHERE id=?";
         return jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Article.class), id);
     }
+
+    public int edit(Article article, int id) {
+        String sql = "UPDATE article SET name = ?, description = ?, url_image = ?, price = ?, category_id = ? WHERE id=?;";
+        return jdbcTemplate.update(sql, article.getName(), article.getDescription(), article.getUrl_image(), article.getPrice(), article.getCategory_id(), id);
+    }
+
+
+
 }
