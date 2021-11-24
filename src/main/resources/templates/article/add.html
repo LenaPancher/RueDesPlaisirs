@@ -12,9 +12,7 @@
     <meta name="description" content="Passage du Désir la première marque dédiée au développement durable du couple. Sélection de sextoys de qualité; cadeaux coquins et romantiques.">
     <meta property="og:description" content="Passage du Désir la première marque dédiée au développement durable du couple. Sélection de sextoys de qualité; cadeaux coquins et romantiques.">
     <meta property="twitter:description" content="Passage du Désir la première marque dédiée au développement durable du couple. Sélection de sextoys de qualité; cadeaux coquins et romantiques.">
-    <link type="text/css" rel="stylesheet" href="css/plugins.css">
-    <link type="text/css" rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="images/logo.ico">
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -22,7 +20,7 @@
     <header>
         <div class="plaisir-menu">
             <div>
-                <img src="images/logo.png" alt="">
+                <img src="/images/logo.png" alt="">
             </div>
             <div>
                 <ul>
@@ -39,14 +37,14 @@
                 <h4>Ajouter un article</h4>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus tenetur, eos sint voluptatem amet ea culpa nostrum vel numquam officia. Labore reprehenderit vero repudiandae obcaecati necessitatibus? Aut odit sit vitae pariatur nostrum blanditiis expedita architecto?</p>
                 <b>
-                    <img src="images/sextoy1.png" alt="">
-                    <img src="images/sextoy2.png" alt="">
+                    <img src="/images/sextoy1.png" alt="">
+                    <img src="/images/sextoy2.png" alt="">
                 </b>
             </div>
             <div>
                 <div>
-                    <img src="images/logo.png" alt="">
-                    <form action="#" th:action="@{/article}" th:object="${article}" method="post">
+                    <img src="/images/logo.png" alt="">
+                    <form action="#" th:action="@{/articles/article}" th:object="${article}" method="post">
                         <p>Nom: <input type="text" th:field="*{name}"/></p>
                         <p>Description: <input type="text" th:field="*{description}"/></p>
                         <p>Image: <input type="text" th:field="*{url_image}"/></p>
@@ -62,9 +60,9 @@
     </div>
 </div>
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/plugins.js"></script>
-<script type="text/javascript" src="js/scripts.js"></script>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins.js"></script>
+<script type="text/javascript" src="/js/scripts.js"></script>
 </body>
 
 </html>

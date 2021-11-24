@@ -6,10 +6,8 @@ import com.example.ruedesplaisirs.services.ArticleDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 
@@ -18,13 +16,12 @@ import java.util.List;
 public class ArticleController {
 
     @Autowired
-    private ArticleDao articles;
+    private ArticleDao articleDao;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(Model model){
-        List<Article> List = articles.ListAll();
+        List<Article> List = articleDao.ListAll();
         model.addAttribute("article", List);
-
         return "article/index";
     }
 
