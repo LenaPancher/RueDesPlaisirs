@@ -30,11 +30,24 @@
                 <ul>
                     <li><a href="/">Accueil</a></li>
                     <li><a href="/articles">Produit</a></li>
-                    <li><b>Découvrer le plaisir</b></li>
+                    <li><b>Découvrez le plaisir</b></li>
                 </ul>
             </div>
         </div>
     </header>
+    <div id="plaisir-action-article">
+        <div>
+            <input type="text" value="Rechercher ...">
+        </div>
+        <div>
+            <a href="#">Femmes</a>
+            <a href="#">Hommes</a>
+            <a href="#">Femmes et Hommes</a>
+        </div>
+        <div>
+            <a href="/articles/article">Ajouter un article</a>
+        </div>
+    </div>
     <div id="wrapper">
         <div class="plaisir-contains fix">
             <div class="plaisir-card" th:each="article : ${article}">

@@ -39,7 +39,7 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 3;
+    z-index: -6;
 }
 #main {
     height: 100%;
@@ -73,7 +73,7 @@ body {
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
-    background-color: black;
+    background-color: #440376;
     overflow-x: hidden;
 
 }
@@ -468,4 +468,20 @@ label i {
        position: absolute;
        content: "€";
        right: 5px;
+}
+
+#plaisir-action-article {
+    display: flex;
+    justify-content: space-between;
+    padding: 1%;
+    margin: 7% 1%;
+    text-align: center;
+}
+
+#plaisir-action-article > div {
+    background: white;
+}
+
+#plaisir-action-article > a {
+    color: #440376;
 }

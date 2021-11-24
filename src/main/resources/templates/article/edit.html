@@ -26,7 +26,7 @@
                 <ul>
                     <li><a href="/">Accueil</a></li>
                     <li><a href="/articles">Produit</a></li>
-                    <li><b>Découvrer le plaisir</b></li>
+                    <li><b>Découvrez le plaisir</b></li>
                 </ul>
             </div>
         </div>
@@ -47,13 +47,13 @@
 
 
                     <form action="#" th:action="@{/articles/article/edit/} + ${article.id}" th:object="${article}" method="post">
-                        <p>Nom: <input type="text" th:field="${article.name}" th:text="${article.name}"/></p>
-                        <p>Description: <input type="text" th:field="${article.description}" th:text="${article.description}"/></p>
-                        <p>Image: <input type="text" th:field="${article.url_image}" th:text="${article.url_image}"/></p>
-                        <p>Prix: <input type="text" th:field="${article.price}" th:text="${article.price}"/></p>
-                        <p>Categorie: <input type="text" th:field="${article.category_id}" th:text="${article.category_id}"/></p>
+                        <p>Nom: <input type="text" th:field="${article.name}"/></p>
+                        <p>Description: <textarea type="text" th:field="${article.description}"></textarea></p>
+                        <p>Image: <input type="text" th:field="${article.url_image}"/></p>
+                        <p>Prix: <input type="text" th:field="${article.price}"/></p>
+                        <p>Categorie: <input type="text" th:field="${article.category_id}"/></p>
                         <p>
-                            <input type="submit" value="Editer">
+                            <input type="submit" value="Modifier">
                             <input class="red" type="reset" value="Annuler">
                         </p>
                     </form>

@@ -30,7 +30,7 @@
                 <ul>
                     <li><a href="/">Accueil</a></li>
                     <li><a href="/articles">Produit</a></li>
-                    <li><b>Découvrer le plaisir</b></li>
+                    <li><b>Découvrez le plaisir</b></li>
                 </ul>
             </div>
         </div>
@@ -43,23 +43,22 @@
                     <table>
                         <thead>
                         <tr>
-                            <td>name</td>
-                            <td>description</td>
-                            <td>id</td>
+                            <td>Image</td>
+                            <td>Nom</td>
+                            <td>Description</td>
+                            <td>Prix</td>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
+                            <td><img th:src="${article.url_image}" alt=""></td>
                             <td th:text="${article.name}"></td>
                             <td th:text="${article.description}"></td>
-                            <td th:text="${article.id}"></td>
-                            <td>
-                                <a href="/articles">Retour</a>
-                            </td>
+                            <td th:text="${article.price}"></td>
                         </tr>
                         </tbody>
                     </table>
-                    <a href="/articles/article">Ajouter un article</a>
+                    <a href="/articles">Retour</a>
                 </div>
             </div>
         </section>
