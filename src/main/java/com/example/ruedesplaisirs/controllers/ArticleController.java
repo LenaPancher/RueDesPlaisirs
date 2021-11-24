@@ -26,13 +26,13 @@ public class ArticleController {
     }
 
     @RequestMapping(value = "article", method = RequestMethod.GET)
-    public String userForm(Model model) {
+    public String articleForm(Model model) {
         model.addAttribute("article", new Article());
         return "article/add";
     }
 
     @RequestMapping(value = "article", method = RequestMethod.POST)
-    public String userSubmit(@ModelAttribute Article article, Model model) {
+    public String articleSubmit(@ModelAttribute Article article, Model model) {
         articleDao.add(article);
         model.addAttribute("article", article);
         return "redirect:/articles";
