@@ -390,15 +390,15 @@ label i {
 }
 /* CARD ARTICLE */
 .plaisir-contains {
-       position: relative;
-       width: 100%;
-       background: #440376;
-       height: 100%;
-       display: flex;
-       flex-wrap: wrap;
-       flex-direction: row;
-       align-content: center;
-       justify-content: center;
+    position: relative;
+    width: 100%;
+    background: #440376;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: center;
 }
 
 .plaisir-card {
@@ -469,4 +469,3 @@ label i {
        content: "€";
        right: 5px;
 }
-

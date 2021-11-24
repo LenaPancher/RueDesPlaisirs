@@ -21,7 +21,7 @@ public class ArticleController {
     private ArticleDao articleDao;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String index(Model model){
+    public String index(Model model) {
         List<Article> List = articleDao.ListAll();
         model.addAttribute("article", List);
         return "article/index";
@@ -53,16 +53,16 @@ public class ArticleController {
         model.addAttribute("article", articleDao.show(id));
         return "article/edit";
     }
+
     @RequestMapping(value = "article/edit/{id}", method = RequestMethod.POST)
     public String editArticle(@ModelAttribute Article article, @PathVariable int id) {
         articleDao.edit(article, id);
         return "redirect:/articles";
     }
-    
+
     @RequestMapping(value = "article/delete/{id}", method = RequestMethod.GET)
     public String articleDelete(@PathVariable int id) {
         int article = articleDao.delete(id);
-
         return "redirect:/articles";
     }
 }

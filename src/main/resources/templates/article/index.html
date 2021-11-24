@@ -39,29 +39,16 @@
         <div class="plaisir-contains fix">
             <div class="plaisir-card" th:each="article : ${article}">
                 <div>
-                    <h1>Liste des sextoys</h1>
-                    <table>
-                        <thead>
-                        <tr>
-                            <td>name</td>
-                            <td>description</td>
-                            <td>id</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="article : ${article}">
-                            <td th:text="${article.name}"></td>
-                            <td th:text="${article.description}"></td>
-                            <td th:text="${article.id}"></td>
-                            <td>
-                                <a th:href="'/articles/article/' + ${article.id}">Voir plus</a>
-                                <a th:href="'/articles/article/edit/' + ${article.id}">Modifier</a>
-                                <a th:href="'/articles/article/delete/' + ${article.id}">Supprimer</a>
+                    <img th:src="${article.url_image}" alt="">
+                </div>
 
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                <div>
+                    <h4 th:text="${article.name}"></h4>
+                    <p th:text="${article.description}">€</p>
+                    <b th:text="${article.price}"></b>
+                    <a th:href="'/articles/article/' + ${article.id}">Voir plus</a>
+                    <a th:href="'/articles/article/edit/' + ${article.id}">Modifier</a>
+                    <a th:href="'/articles/article/delete/' + ${article.id}">Supprimer</a>
                 </div>
             </div>
         </div>
