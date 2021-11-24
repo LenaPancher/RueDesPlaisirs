@@ -12,7 +12,9 @@
     <meta name="description" content="Passage du Désir la première marque dédiée au développement durable du couple. Sélection de sextoys de qualité; cadeaux coquins et romantiques.">
     <meta property="og:description" content="Passage du Désir la première marque dédiée au développement durable du couple. Sélection de sextoys de qualité; cadeaux coquins et romantiques.">
     <meta property="twitter:description" content="Passage du Désir la première marque dédiée au développement durable du couple. Sélection de sextoys de qualité; cadeaux coquins et romantiques.">
-    <link type="text/css" rel="stylesheet" href="/css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/plugins.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/logo.ico">
 </head>
 
 <body>
@@ -20,7 +22,7 @@
     <header>
         <div class="plaisir-menu">
             <div>
-                <img src="/images/logo.png" alt="">
+                <img src="images/logo.png" alt="">
             </div>
             <div>
                 <ul>
@@ -32,26 +34,36 @@
         </div>
     </header>
     <div id="wrapper">
-        <section class="plaisir-mainpage">
-            <div class="plaisir-content">
-                <div>
-                    <h1>Laissez-vous tenter par le désir</h1>
-                    <p>Pas de panique, on pense à vous : pas de rideaux, pas de néons, pas de honte ni de gêne.
-                        <br>Nos conseillers de vente mettront tout en œuvre pour vous accueillir avec bienveillance, dans une atmosphère agréable et détendue.
-                        <br>
-                        <br>On sait que la sexualité est aussi variée que vous l’êtes. Passage du Désir se veut inclusif et accessible au grand public.</p>
-                    <a href="">Découvrir nos produits</a>
-                </div>
-                <div>
-                    <img class="plaisir-sextoy1" src="/images/sextoy1.png" alt="">
-                    <img class="plaisir-sextoy2" src="/images/sextoy2.png" alt="">
-                </div>
+        <section class="plaisir-a-article">
+            <div>
+                <h4>Ajouter un article</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus tenetur, eos sint voluptatem amet ea culpa nostrum vel numquam officia. Labore reprehenderit vero repudiandae obcaecati necessitatibus? Aut odit sit vitae pariatur nostrum blanditiis expedita architecto?</p>
+                <b>
+                    <img src="images/sextoy1.png" alt="">
+                    <img src="images/sextoy2.png" alt="">
+                </b>
             </div>
+            <div>
+                <div>
+                    <img src="images/logo.png" alt="">
+                    <form action="#" th:action="@{/article}" th:object="${article}" method="post">
+                        <p>Nom: <input type="text" th:field="*{name}"/></p>
+                        <p>Description: <input type="text" th:field="*{description}"/></p>
+                        <p>Image: <input type="text" th:field="*{url_image}"/></p>
+                        <p>Prix: <input type="text" th:field="*{price}"/></p>
+                        <p>Catégorie: <input type="text" th:field="*{category_id}"/></p>
+                        <p>
+                            <input type="submit" value="Ajouter">
+                            <input class="red" type="reset" value="Annuler">
+                        </p>
+                    </form>
+                </div>
         </section>
     </div>
 </div>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plugins.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
 </body>
 
