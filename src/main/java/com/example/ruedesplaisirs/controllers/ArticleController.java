@@ -37,4 +37,9 @@ public class ArticleController {
         model.addAttribute("article", article);
         return "redirect:/articles";
     }
+
+    @RequestMapping(value = "article/{id}", method = RequestMethod.GET)
+    public @ResponseBody int getItem(@PathVariable(value="id") int id) {
+        return id;
+    }
 }

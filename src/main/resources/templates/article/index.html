@@ -38,24 +38,31 @@
     <div id="wrapper">
         <section class="plaisir-a-article">
             <div>
-                <h1>Liste des sextoys</h1>
-                <table>
-                    <thead>
-                    <tr>
-                        <td>name</td>
-                        <td>description</td>
-                        <td>id</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="article : ${article}">
-                        <td th:text="${article.name}"></td>
-                        <td th:text="${article.description}"></td>
-                        <td th:text="${article.id}"></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <a href="/articles/article">Ajouter un utilisateur</a>
+                <div>
+                    <h1>Liste des sextoys</h1>
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>name</td>
+                            <td>description</td>
+                            <td>id</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="article : ${article}">
+                            <td th:text="${article.name}"></td>
+                            <td th:text="${article.description}"></td>
+                            <td th:text="${article.id}"></td>
+                            <td>
+                                <a href="">Voir plus</a>
+                                <a href="">Modifier</a>
+                                <a href="">Supprimer</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <a href="/articles/article">Ajouter un article</a>
+                </div>
             </div>
         </section>
     </div>
