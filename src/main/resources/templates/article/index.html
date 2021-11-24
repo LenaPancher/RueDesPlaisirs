@@ -36,8 +36,8 @@
         </div>
     </header>
     <div id="wrapper">
-        <section class="plaisir-a-article">
-            <div>
+        <div class="plaisir-contains fix">
+            <div class="plaisir-card" th:each="article : ${article}">
                 <div>
                     <h1>Liste des sextoys</h1>
                     <table>
@@ -64,7 +64,7 @@
                     </table>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
 </div>
 
