@@ -73,7 +73,7 @@ body {
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
-    background-color: #440376;
+    background-color: #440376!important;
     overflow-x: hidden;
 
 }
@@ -365,7 +365,7 @@ textarea:-moz-placeholder {
     font-size: 13px
 }
 textarea {
-    height: 200px;
+    height: 100px;
     resize: none;
     padding: 25px 20px;
     -webkit-appearance: none;
@@ -489,11 +489,44 @@ label i {
     margin: 7% 1%;
     text-align: center;
 }
-
 #plaisir-action-article > div {
+    display: flex;
+
+}
+#plaisir-action-article > div > div {
     background: white;
+    margin-right: 10px;
+    padding: 10px;
+
+}
+#plaisir-action-article > div a {
+    padding: 5px;
+    color: #2A2A2A;
 }
 
 #plaisir-action-article > a {
     color: #440376;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul {
+    disple: flex;
+    display: flex;
+    background: white;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+nav ul li {
+    list-style-type: none;
+    margin: 0 20px;
+    cursor: pointer;
 }

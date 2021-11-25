@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Passage du Désir : boutique chic et glamour</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="index, follow"/>
     <meta property="og:title" content="Passage du Désir : boutique chic et glamour">
-    <meta property="og:image" content="" />
+    <meta property="og:image" content=""/>
     <meta property="twitter:card" content="summary">
     <meta property="twitter:title" content="Passage du Désir : boutique chic et glamour">
-    <meta name="description" content="Passage du Désir la première marque dédiée au développement durable du couple. Sélection de sextoys de qualité; cadeaux coquins et romantiques.">
-    <meta property="og:description" content="Passage du Désir la première marque dédiée au développement durable du couple. Sélection de sextoys de qualité; cadeaux coquins et romantiques.">
-    <meta property="twitter:description" content="Passage du Désir la première marque dédiée au développement durable du couple. Sélection de sextoys de qualité; cadeaux coquins et romantiques.">
+    <meta name="description"
+          content="Passage du Désir la première marque dédiée au développement durable du couple. Sélection de sextoys de qualité; cadeaux coquins et romantiques.">
+    <meta property="og:description"
+          content="Passage du Désir la première marque dédiée au développement durable du couple. Sélection de sextoys de qualité; cadeaux coquins et romantiques.">
+    <meta property="twitter:description"
+          content="Passage du Désir la première marque dédiée au développement durable du couple. Sélection de sextoys de qualité; cadeaux coquins et romantiques.">
     <link type="text/css" rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -35,7 +39,9 @@
         <section class="plaisir-a-article">
             <div>
                 <h4>Ajouter un article</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus tenetur, eos sint voluptatem amet ea culpa nostrum vel numquam officia. Labore reprehenderit vero repudiandae obcaecati necessitatibus? Aut odit sit vitae pariatur nostrum blanditiis expedita architecto?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus tenetur, eos sint voluptatem
+                    amet ea culpa nostrum vel numquam officia. Labore reprehenderit vero repudiandae obcaecati
+                    necessitatibus? Aut odit sit vitae pariatur nostrum blanditiis expedita architecto?</p>
                 <b>
                     <img src="/images/sextoy1.png" alt="">
                     <img src="/images/sextoy2.png" alt="">
@@ -60,6 +66,10 @@
                             <input class="red" type="reset" value="Annuler">
                         </p>
                     </form>
+                    <div th:if="${errorMessage}" th:utext="${errorMessage}"
+                         style="color:red;font-style:italic;">
+                        ...
+                    </div>
                 </div>
         </section>
     </div>
