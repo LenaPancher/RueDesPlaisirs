@@ -49,7 +49,12 @@
                         <p>Description: <input type="text" th:field="*{description}"/></p>
                         <p>Image: <input type="text" th:field="*{url_image}"/></p>
                         <p>Prix: <input type="text" th:field="*{price}"/></p>
-                        <p>Catégorie: <input type="text" th:field="*{category_id}"/></p>
+                        <p>Catégorie:
+                            <select th:field="*{category_id}">
+                                <option th:each="i : ${#numbers.sequence(1, 3)}" th:value="${i}"
+                                        th:text="${i}"></option>
+                            </select>
+                        </p>
                         <p>
                             <input type="submit" value="Ajouter">
                             <input class="red" type="reset" value="Annuler">
