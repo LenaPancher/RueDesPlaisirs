@@ -48,9 +48,15 @@ public class ArticleController {
 
     @RequestMapping(value = "article", method = RequestMethod.POST)
     public String articleSubmit(@ModelAttribute Article article, Model model) {
-        articlesDao.add(article);
-        model.addAttribute("article", article);
-        return "redirect:/articles";
+        if (article.getName() != null && article.getName().length() > 0
+                && article.getDescription() != null && article.getDescription().length() > 0
+                && article.getUrl_image() != null) {
+            articlesDao.add(article);
+            model.addAttribute("article", article);
+            return "redirect:/articles";
+        }
+        model.addAttribute("errorMessage", "Nom, description et url d'image obligatoire");
+        return "article/add";
     }
 
     @RequestMapping(value = "article/{id}", method = RequestMethod.GET)

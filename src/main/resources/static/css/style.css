@@ -73,7 +73,7 @@ body {
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
-    background-color: #440376;
+    background-color: #440376!important;
     overflow-x: hidden;
 
 }
