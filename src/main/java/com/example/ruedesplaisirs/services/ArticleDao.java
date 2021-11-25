@@ -16,11 +16,8 @@ public class ArticleDao {
     private JdbcTemplate jdbcTemplate;
 
     public List<Article> ListAll() {
-        //List<Article> List = new ArrayList<>();
-
         String sql = "SELECT * FROM article;";
         List<Article> list = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Article.class));
-
         return list;
     }
 
@@ -42,5 +39,17 @@ public class ArticleDao {
     public int delete(int id) {
         String sql = "DELETE FROM article WHERE id=?;";
         return jdbcTemplate.update(sql, id);
+    }
+
+    public List<Article> ListFemmes() {
+        String sql = "SELECT * FROM `article` WHERE category_id = 1;";
+        List<Article> list = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Article.class));
+        return list;
+    }
+
+    public List<Article> ListHommes() {
+        String sql = "SELECT * FROM `article` WHERE category_id = 2;";
+        List<Article> list = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Article.class));
+        return list;
     }
 }

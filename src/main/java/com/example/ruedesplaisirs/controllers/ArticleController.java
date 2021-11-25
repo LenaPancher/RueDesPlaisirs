@@ -27,6 +27,20 @@ public class ArticleController {
         return "article/index";
     }
 
+    @RequestMapping(value = "/categorie_femmes", method = RequestMethod.GET)
+    public String articlesFemmes(Model model) {
+        List<Article> List = articleDao.ListFemmes();
+        model.addAttribute("article", List);
+        return "article/categorie_femmes";
+    }
+
+    @RequestMapping(value = "/categorie_hommes", method = RequestMethod.GET)
+    public String articlesHommes(Model model) {
+        List<Article> List = articleDao.ListHommes();
+        model.addAttribute("article", List);
+        return "article/categorie_hommes";
+    }
+
     @RequestMapping(value = "article", method = RequestMethod.GET)
     public String articleForm(Model model) {
         model.addAttribute("article", new Article());
@@ -39,7 +53,6 @@ public class ArticleController {
         model.addAttribute("article", article);
         return "redirect:/articles";
     }
-
 
     @RequestMapping(value = "article/{id}", method = RequestMethod.GET)
     public String showArticle(@PathVariable int id, Model model) {
