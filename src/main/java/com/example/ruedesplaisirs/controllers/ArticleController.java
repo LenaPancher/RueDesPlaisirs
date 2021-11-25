@@ -19,10 +19,10 @@ public class ArticleController {
     @Autowired
     private ArticlesDao articlesDao;
 
-    /** This function makes it possible to display all the article from de database
-     *
+    /**
+     * This function makes it possible to display all the article from de database
      * @param model
-     * @return index page
+     * @return index.html
      */
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(Model model) {
@@ -31,6 +31,11 @@ public class ArticleController {
         return "article/index";
     }
 
+    /**
+     * This function displays the articles of the category 'Women'
+     * @param model
+     * @return categorie_femmes.html
+     */
     @RequestMapping(value = "/categorie_femmes", method = RequestMethod.GET)
     public String articlesFemmes(Model model) {
         List<Article> List = articlesDao.ListFemmes();
@@ -38,6 +43,11 @@ public class ArticleController {
         return "article/categorie_femmes";
     }
 
+    /**
+     * This function displays the articles of the category 'Men'
+     * @param model
+     * @return categorie_hommes.html
+     */
     @RequestMapping(value = "/categorie_hommes", method = RequestMethod.GET)
     public String articlesHommes(Model model) {
         List<Article> List = articlesDao.ListHommes();
@@ -45,12 +55,23 @@ public class ArticleController {
         return "article/categorie_hommes";
     }
 
+    /**
+     * This function retrieves the data from the article form when adding an article
+     * @param model
+     * @return add.html
+     */
     @RequestMapping(value = "article", method = RequestMethod.GET)
     public String articleForm(Model model) {
         model.addAttribute("article", new Article());
         return "article/add";
     }
 
+    /**
+     * This function checks if the data are well filled and then adds them in the data table
+     * @param article
+     * @param model
+     * @return add.html
+     */
     @RequestMapping(value = "article", method = RequestMethod.POST)
     public String articleSubmit(@ModelAttribute Article article, Model model) {
         if (article.getName() != null && article.getName().length() > 0
@@ -64,6 +85,12 @@ public class ArticleController {
         return "article/add";
     }
 
+    /**
+     * This function allows you to display the data of an article
+     * @param id
+     * @param model
+     * @return show.html
+     */
     @RequestMapping(value = "article/{id}", method = RequestMethod.GET)
     public String showArticle(@PathVariable int id, Model model) {
         Article article = articlesDao.show(id);
@@ -71,20 +98,32 @@ public class ArticleController {
         return "article/show";
     }
 
+    /**
+     * This function retrieves the data from the article form when an article is modified
+     * @param id
+     * @param model
+     * @return edit.html
+     */
     @RequestMapping(value = "article/edit/{id}", method = RequestMethod.GET)
     public String editForm(@PathVariable int id, Model model) {
         model.addAttribute("article", articlesDao.show(id));
         return "article/edit";
     }
 
+    /**
+     * This function adds the changes to the database
+     * @param article
+     * @param id
+     * @return index.html
+     */
     @RequestMapping(value = "article/edit/{id}", method = RequestMethod.POST)
     public String editArticle(@ModelAttribute Article article, @PathVariable int id) {
         articlesDao.edit(article, id);
         return "redirect:/articles";
     }
 
-    /** This function makes it possible to remove an article from the database
-     *
+    /**
+     * This function makes it possible to remove an article from the database
      * @param id
      * @return page html to redirect after deleted an article
      */
@@ -94,8 +133,8 @@ public class ArticleController {
         return "redirect:/articles";
     }
 
-    /**This fonction display 6 article on de first page
-     *
+    /**
+     * This fonction display 6 article on de first page
      * @param model
      * @return page html firstPage.html
      */
@@ -106,8 +145,8 @@ public class ArticleController {
         return "article/firstPage";
     }
 
-    /**This fonction display 6 article on de second page
-     *
+    /**
+     * This fonction display 6 article on de second page
      * @param model
      * @return page html secondPage.html
      */
@@ -118,8 +157,8 @@ public class ArticleController {
         return "article/secondPage";
     }
 
-    /** This fonction display 6 article on de third page
-     *
+    /**
+     * This fonction display 6 article on de third page
      * @param model
      * @return page html thirdPage.html
      */
