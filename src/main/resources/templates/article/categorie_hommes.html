@@ -59,11 +59,9 @@
                     <h4 th:text="${article.name}"></h4>
                     <p th:text="${article.description}">€</p>
                     <b th:text="${article.price}"></b>
-                    <div>
-                        <a th:href="'/articles/article/' + ${article.id}">Voir plus</a>
-                        <a th:href="'/articles/article/edit/' + ${article.id}">Modifier</a>
-                        <a th:href="'/articles/article/delete/' + ${article.id}">Supprimer</a>
-                    </div>
+                    <a th:href="'/articles/article/' + ${article.id}">Voir plus</a>
+                    <a th:href="'/articles/article/edit/' + ${article.id}">Modifier</a>
+                    <a th:href="'/articles/article/delete/' + ${article.id}">Supprimer</a>
                 </div>
             </div>
         </div>
