@@ -423,9 +423,21 @@ label i {
 .plaisir-card div:first-child img {
     height: 100%;
     width: 100%;
-   object-fit: cover;
+   object-fit: contain;
 }
 
+.plaisir-card > div a {
+    background: #440376;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+}
+
+
+.plaisir-card > div > div {
+    margin-top: 15px;
+    position: relative;
+}
 
 .plaisir-card > div:last-child {
         padding: 20px;
@@ -458,7 +470,7 @@ label i {
 .plaisir-card > div:last-child b {
        position: relative;
        font-size: 16px;
-       background: #440376;
+       background: #2A2A2A;
        padding: 5px 20px 5px 5px;
        color: white;
        border-radius: 5px;
