@@ -365,7 +365,7 @@ textarea:-moz-placeholder {
     font-size: 13px
 }
 textarea {
-    height: 200px;
+    height: 100px;
     resize: none;
     padding: 25px 20px;
     -webkit-appearance: none;
