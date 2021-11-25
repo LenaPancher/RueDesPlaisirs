@@ -1,15 +1,14 @@
 package com.example.ruedesplaisirs.controllers;
 
 import com.example.ruedesplaisirs.models.Article;
-import com.example.ruedesplaisirs.services.ArticleDao;
 
+import com.example.ruedesplaisirs.services.ArticlesDao;
+import com.example.ruedesplaisirs.services.ArticlesDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 
@@ -18,25 +17,25 @@ import java.util.List;
 public class ArticleController {
 
     @Autowired
-    private ArticleDao articleDao;
+    private ArticlesDao articlesDao;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(Model model) {
-        List<Article> List = articleDao.ListAll();
+        List<Article> List = articlesDao.ListAll();
         model.addAttribute("article", List);
         return "article/index";
     }
 
     @RequestMapping(value = "/categorie_femmes", method = RequestMethod.GET)
     public String articlesFemmes(Model model) {
-        List<Article> List = articleDao.ListFemmes();
+        List<Article> List = articlesDao.ListFemmes();
         model.addAttribute("article", List);
         return "article/categorie_femmes";
     }
 
     @RequestMapping(value = "/categorie_hommes", method = RequestMethod.GET)
     public String articlesHommes(Model model) {
-        List<Article> List = articleDao.ListHommes();
+        List<Article> List = articlesDao.ListHommes();
         model.addAttribute("article", List);
         return "article/categorie_hommes";
     }
@@ -49,33 +48,33 @@ public class ArticleController {
 
     @RequestMapping(value = "article", method = RequestMethod.POST)
     public String articleSubmit(@ModelAttribute Article article, Model model) {
-        articleDao.add(article);
+        articlesDao.add(article);
         model.addAttribute("article", article);
         return "redirect:/articles";
     }
 
     @RequestMapping(value = "article/{id}", method = RequestMethod.GET)
     public String showArticle(@PathVariable int id, Model model) {
-        Article article = articleDao.show(id);
+        Article article = articlesDao.show(id);
         model.addAttribute("article", article);
         return "article/show";
     }
 
     @RequestMapping(value = "article/edit/{id}", method = RequestMethod.GET)
     public String editForm(@PathVariable int id, Model model) {
-        model.addAttribute("article", articleDao.show(id));
+        model.addAttribute("article", articlesDao.show(id));
         return "article/edit";
     }
 
     @RequestMapping(value = "article/edit/{id}", method = RequestMethod.POST)
     public String editArticle(@ModelAttribute Article article, @PathVariable int id) {
-        articleDao.edit(article, id);
+        articlesDao.edit(article, id);
         return "redirect:/articles";
     }
 
     @RequestMapping(value = "article/delete/{id}", method = RequestMethod.GET)
     public String articleDelete(@PathVariable int id) {
-        int article = articleDao.delete(id);
+        int article = articlesDao.delete(id);
         return "redirect:/articles";
     }
 }

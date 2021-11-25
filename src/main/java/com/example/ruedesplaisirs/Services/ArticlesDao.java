@@ -11,7 +11,7 @@ import java.util.List;
 
 //@Service
 @Repository
-public class ArticleDao {
+public class ArticlesDao {
     @Autowired //permet d'injecter la dépendance
     private JdbcTemplate jdbcTemplate;
 
