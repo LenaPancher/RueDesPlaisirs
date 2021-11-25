@@ -6,6 +6,8 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -17,8 +19,31 @@ public class ArticlesDao {
 
     public List<Article> ListAll() {
         String sql = "SELECT * FROM article;";
-        List<Article> list = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Article.class));
-        return list;
+        List<Article> List = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Article.class));
+
+        return List;
+    }
+    public List<Article> firstPage() {
+        String sql = "SELECT * FROM article LIMIT 0, 6;";
+        List<Article> List = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Article.class));
+
+        return List;
+    }
+
+    public List<Article> secondPage() {
+        //String sql = "SELECT * FROM article;";
+        String sql = "SELECT * FROM article LIMIT 6, 6;";
+        List<Article> List = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Article.class));
+
+        return List;
+    }
+
+    public List<Article> thirdPage() {
+        //String sql = "SELECT * FROM article;";
+        String sql = "SELECT * FROM article LIMIT 12, 6;";
+        List<Article> List = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Article.class));
+
+        return List;
     }
 
     public int add(Article article){
@@ -52,4 +77,6 @@ public class ArticlesDao {
         List<Article> list = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Article.class));
         return list;
     }
+
+
 }

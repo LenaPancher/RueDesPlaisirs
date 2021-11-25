@@ -77,4 +77,26 @@ public class ArticleController {
         int article = articlesDao.delete(id);
         return "redirect:/articles";
     }
+
+    @RequestMapping(value = "firstPage", method = RequestMethod.GET)
+    public String firstPage(Model model) {
+        List<Article> List = articlesDao.firstPage();
+        model.addAttribute("article", List);
+        return "article/firstPage";
+    }
+
+    @RequestMapping(value = "/secondPage", method = RequestMethod.GET)
+    public String secondPage(Model model) {
+        List<Article> List = articlesDao.secondPage();
+        model.addAttribute("article", List);
+        return "article/secondPage";
+    }
+
+    @RequestMapping(value = "/thirdPage", method = RequestMethod.GET)
+    public String thirdPage(Model model) {
+        List<Article> List = articlesDao.thirdPage();
+        model.addAttribute("article", List);
+        return "article/thirdPage";
+    }
+
 }

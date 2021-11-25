@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Passage du Désir : boutique chic et glamour</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="robots" content="index, follow"/>
+  <meta property="og:title" content="Passage du Désir : boutique chic et glamour">
+  <meta property="og:image" content=""/>
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Passage du Désir : boutique chic et glamour">
+  <meta name="description"
+        content="Passage du Désir la première marque dédiée au développement durable du couple. Sélection de sextoys de qualité; cadeaux coquins et romantiques.">
+  <meta property="og:description"
+        content="Passage du Désir la première marque dédiée au développement durable du couple. Sélection de sextoys de qualité; cadeaux coquins et romantiques.">
+  <meta property="twitter:description"
+        content="Passage du Désir la première marque dédiée au développement durable du couple. Sélection de sextoys de qualité; cadeaux coquins et romantiques.">
+  <link type="text/css" rel="stylesheet" href="/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+
+<div id="main">
+  <header>
+    <div class="plaisir-menu">
+      <div>
+        <img src="/images/logo.png" alt="">
+      </div>
+      <div>
+        <ul>
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/articles">Produit</a></li>
+          <li><b>Découvrez le plaisir</b></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <div id="plaisir-action-article">
+    <div>
+      <input type="text" value="Rechercher ...">
+    </div>
+    <div>
+      <a href="/articles/categorie_femmes">Femmes</a>
+      <a href="/articles/categorie_hommes">Hommes</a>
+      <a href="/articles">Femmes et Hommes</a>
+    </div>
+    <div>
+      <a href="/articles/article">Ajouter un article</a>
+    </div>
+  </div>
+  <div id="wrapper">
+    <div class="plaisir-contains fix">
+      <div class="plaisir-card" th:each="article : ${article}">
+        <div>
+          <img th:src="${article.url_image}" alt="">
+        </div>
+
+        <div>
+          <h4 th:text="${article.name}"></h4>
+          <p th:text="${article.description}">€</p>
+          <b th:text="${article.price}"></b>
+          <div>
+            <a th:href="'/articles/article/' + ${article.id}">Voir plus</a>
+            <a th:href="'/articles/article/edit/' + ${article.id}">Modifier</a>
+            <a th:href="'/articles/article/delete/' + ${article.id}">Supprimer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav aria-label="..." style="margin: 175px 0px 300px 0px;">
+      <ul class="pagination">
+        <li class="page-item disabled">
+          <span class="page-link">Previous</span>
+        </li>
+        <li class="page-item active" aria-current="page">
+          <span class="page-link">1</span>
+        </li>
+        <li class="page-item"><a class="page-link" href="/articles/secondPage">2</a></li>
+
+        <li class="page-item"><a class="page-link" href="/articles/thirdPage">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="/articles/secondPage">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+</div>
+
+<!--<script type="text/javascript" src="/js/jquery.min.js"></script>-->
+<!--<script type="text/javascript" src="/js/scripts.js"></script>-->
+
+</body>
+</html>
