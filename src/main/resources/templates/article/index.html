@@ -37,15 +37,18 @@
     </header>
     <div id="plaisir-action-article">
         <div>
+            <select id="select-tri" onchange="val()">
+                <option value="NULL">Trier par</option>
+                <option value="ASC">Trier par prix croissant</option>
+                <option value="DESC">Trier par prix décroissant</option>
+            </select>
+        </div>
+        <div th:each="category: ${category}">
             <div>
-                <a href="/articles/categorie_femmes">Femmes</a>
+                <a th:href="'/articles/?category_id=' + ${category.id}" th:text="${category.name}"></a>
             </div>
-            <div>
-                <a href="/articles/categorie_hommes">Hommes</a>
-            </div>
-            <div>
-                <a href="/articles/categorie_femmes_hommes">Femmes et Hommes</a>
-            </div>
+        </div>
+        <div>
             <div>
                 <a href="/articles">Tous les produits</a>
             </div>
@@ -58,28 +61,47 @@
     </div>
     <div id="wrapper">
         <div class="plaisir-contains fix">
-            <div class="plaisir-card" th:each="article : ${article}">
+            <div class="plaisir-card" th:each="articles : ${articles}">
                 <div>
-                    <img th:src="${article.url_image}" alt="">
+                    <img th:src="${articles.url_image}" alt="">
                 </div>
 
                 <div>
-                    <h4 th:text="${article.name}"></h4>
-                    <p th:text="${article.description}">€</p>
-                    <b th:text="${article.price}"></b>
+                    <h4 th:text="${articles.name}"></h4>
+                    <p th:text="${articles.description}">€</p>
+                    <b th:text="${articles.price}"></b>
                     <div>
-                        <a th:href="'/articles/article/' + ${article.id}">Voir plus</a>
-                        <a th:href="'/articles/article/edit/' + ${article.id}">Modifier</a>
-                        <a th:href="'/articles/article/delete/' + ${article.id}">Supprimer</a>
+                        <a th:href="'/articles/article/' + ${articles.id}">Voir plus</a>
+                        <a th:href="'/articles/article/edit/' + ${articles.id}">Modifier</a>
+                        <a th:href="'/articles/article/delete/' + ${articles.id}">Supprimer</a>
                     </div>
                 </div>
             </div>
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <!--                    <th:block th:each="i: ${#numbers.sequence(1, articles.size()+1, 6)}">-->
+                    <!--                        <li class="page-item" th:with="j = ${ { 1, j+1 } }">-->
+                    <!--                            <a th:id="${i}" onclick="goTo(this.id)" th:text="${i}"-->
+                    <!--                               class="page-link"></a>-->
+                    <!--                        </li>-->
+                    <!--                    </th:block>-->
+
+                    <li class="page-item">
+                        <a th:id="0" onclick="goTo(this.id)" th:text="1"
+                           class="page-link"></a>
+                    </li>
+                    <li class="page-item">
+                        <a th:id="6" onclick="goTo(this.id)" th:text="2"
+                           class="page-link"></a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
 </div>
 
 <!--<script type="text/javascript" src="/js/jquery.min.js"></script>-->
-<!--<script type="text/javascript" src="/js/scripts.js"></script>-->
+<script type="text/javascript" src="/js/script.js"></script>
 
 </body>
 </html>

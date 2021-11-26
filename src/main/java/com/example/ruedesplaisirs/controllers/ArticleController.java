@@ -2,14 +2,17 @@ package com.example.ruedesplaisirs.controllers;
 
 import com.example.ruedesplaisirs.models.Article;
 
+import com.example.ruedesplaisirs.models.Categorie;
 import com.example.ruedesplaisirs.services.ArticlesDao;
-import com.example.ruedesplaisirs.services.ArticlesDao;
+import com.example.ruedesplaisirs.services.CategoryDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.print.Pageable;
 import java.util.List;
+import java.util.Optional;
 
 
 @Controller
@@ -19,57 +22,30 @@ public class ArticleController {
     @Autowired
     private ArticlesDao articlesDao;
 
+    @Autowired
+    private CategoryDao categoryDao;
+
     /**
      * This function makes it possible to display all the article from de database
+     *
      * @param model
      * @return index.html
      */
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String index(Model model) {
-        List<Article> List = articlesDao.ListAll();
-        model.addAttribute("article", List);
+    public String index(Model model, @RequestParam("category_id") Optional<Integer> category_id, @RequestParam("tri") Optional<String> tri, @RequestParam("page") Optional<Integer> page) {
+        List<Article> articles = articlesDao.getArticles(category_id, tri);
+        List<Categorie> categorieList = categoryDao.getCategories();
+        if (page.isPresent()) {
+            articles = articlesDao.Pagination(page);
+        }
+        model.addAttribute("articles", articles);
+        model.addAttribute("category", categorieList);
         return "article/index";
     }
 
     /**
-     * This function displays the articles of the category 'Femmes'
-     * @param model
-     * @return categorie_femmes.html
-     */
-    @RequestMapping(value = "/categorie_femmes", method = RequestMethod.GET)
-    public String articlesFemmes(Model model) {
-        List<Article> List = articlesDao.ListFemmes();
-        model.addAttribute("article", List);
-        return "article/categorie_femmes";
-    }
-
-    /**
-     * This function displays the articles of the category 'Hommes'
-     * @param model
-     * @return categorie_hommes.html
-     */
-    @RequestMapping(value = "/categorie_hommes", method = RequestMethod.GET)
-    public String articlesHommes(Model model) {
-        List<Article> List = articlesDao.ListHommes();
-        model.addAttribute("article", List);
-        return "article/categorie_hommes";
-    }
-
-    /**
-     * This function displays the articles of the category 'Femmes et Hommes'
-     * @param model
-     * @return categorie_femmes_hommes.html
-     */
-    @RequestMapping(value = "/categorie_femmes_hommes", method = RequestMethod.GET)
-    public String articlesHommesEtFemmes(Model model) {
-        List<Article> List = articlesDao.ListHommesEtFemmes();
-        model.addAttribute("article", List);
-        return "article/categorie_femmes_hommes";
-    }
-
-
-    /**
      * This function retrieves the data from the article form when adding an article
+     *
      * @param model
      * @return add.html
      */
@@ -81,6 +57,7 @@ public class ArticleController {
 
     /**
      * This function checks if the data are well filled and then adds them in the data table
+     *
      * @param article
      * @param model
      * @return add.html
@@ -100,6 +77,7 @@ public class ArticleController {
 
     /**
      * This function allows you to display the data of an article
+     *
      * @param id
      * @param model
      * @return show.html
@@ -113,6 +91,7 @@ public class ArticleController {
 
     /**
      * This function retrieves the data from the article form when an article is modified
+     *
      * @param id
      * @param model
      * @return edit.html
@@ -125,6 +104,7 @@ public class ArticleController {
 
     /**
      * This function adds the changes to the database
+     *
      * @param article
      * @param id
      * @return index.html
@@ -137,6 +117,7 @@ public class ArticleController {
 
     /**
      * This function makes it possible to remove an article from the database
+     *
      * @param id
      * @return page html to redirect after deleted an article
      */
@@ -144,42 +125,6 @@ public class ArticleController {
     public String articleDelete(@PathVariable int id) {
         int article = articlesDao.delete(id);
         return "redirect:/articles";
-    }
-
-    /**
-     * This fonction display 6 article on de first page
-     * @param model
-     * @return page html firstPage.html
-     */
-    @RequestMapping(value = "firstPage", method = RequestMethod.GET)
-    public String firstPage(Model model) {
-        List<Article> List = articlesDao.firstPage();
-        model.addAttribute("article", List);
-        return "article/firstPage";
-    }
-
-    /**
-     * This fonction display 6 article on de second page
-     * @param model
-     * @return page html secondPage.html
-     */
-    @RequestMapping(value = "/secondPage", method = RequestMethod.GET)
-    public String secondPage(Model model) {
-        List<Article> List = articlesDao.secondPage();
-        model.addAttribute("article", List);
-        return "article/secondPage";
-    }
-
-    /**
-     * This fonction display 6 article on de third page
-     * @param model
-     * @return page html thirdPage.html
-     */
-    @RequestMapping(value = "/thirdPage", method = RequestMethod.GET)
-    public String thirdPage(Model model) {
-        List<Article> List = articlesDao.thirdPage();
-        model.addAttribute("article", List);
-        return "article/thirdPage";
     }
 
 }

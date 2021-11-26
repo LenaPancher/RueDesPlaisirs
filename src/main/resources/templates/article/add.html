@@ -57,8 +57,7 @@
                         <p>Prix: <input type="text" th:field="*{price}"/></p>
                         <p>Catégorie:
                             <select th:field="*{category_id}">
-                                <option th:each="i : ${#numbers.sequence(1, 3)}" th:value="${i}"
-                                        th:text="${i}"></option>
+                                <option th:each="i : ${#numbers.sequence(1, 3)}" th:value="${i}" th:text="${i}"></option>
                             </select>
                         </p>
                         <p>
