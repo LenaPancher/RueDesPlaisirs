@@ -32,7 +32,7 @@ public class ArticleController {
     }
 
     /**
-     * This function displays the articles of the category 'Women'
+     * This function displays the articles of the category 'Femmes'
      * @param model
      * @return categorie_femmes.html
      */
@@ -44,7 +44,7 @@ public class ArticleController {
     }
 
     /**
-     * This function displays the articles of the category 'Men'
+     * This function displays the articles of the category 'Hommes'
      * @param model
      * @return categorie_hommes.html
      */
@@ -54,6 +54,19 @@ public class ArticleController {
         model.addAttribute("article", List);
         return "article/categorie_hommes";
     }
+
+    /**
+     * This function displays the articles of the category 'Femmes et Hommes'
+     * @param model
+     * @return categorie_femmes_hommes.html
+     */
+    @RequestMapping(value = "/categorie_femmes_hommes", method = RequestMethod.GET)
+    public String articlesHommesEtFemmes(Model model) {
+        List<Article> List = articlesDao.ListHommesEtFemmes();
+        model.addAttribute("article", List);
+        return "article/categorie_femmes_hommes";
+    }
+
 
     /**
      * This function retrieves the data from the article form when adding an article

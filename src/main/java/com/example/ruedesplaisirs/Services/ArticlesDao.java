@@ -98,7 +98,7 @@ public class ArticlesDao {
     }
 
     /**
-     * This function retrieves a list of items where the category is 'Women'.
+     * This function retrieves a list of items where the category is 'Femmes'.
      * @return list of articles
      */
     public List<Article> ListFemmes() {
@@ -108,7 +108,7 @@ public class ArticlesDao {
     }
 
     /**
-     * This function retrieves a list of items where the category is 'Men'.
+     * This function retrieves a list of items where the category is 'Hommes'.
      * @return list of articles
      */
     public List<Article> ListHommes() {
@@ -117,5 +117,13 @@ public class ArticlesDao {
         return list;
     }
 
-
+    /**
+     * This function retrieves a list of items where the category is 'Femmes et Hommes'.
+     * @return list of articles
+     */
+    public List<Article> ListHommesEtFemmes() {
+        String sql = "SELECT * FROM `article` WHERE category_id = 3;";
+        List<Article> list = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Article.class));
+        return list;
+    }
 }
