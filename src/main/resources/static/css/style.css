@@ -56,7 +56,6 @@ body {
     font-weight: 400;
     letter-spacing: .025em;
     line-height: 2.1428;
-    color: #666;
     overflow-x: hidden;
 
     -webkit-overflow-scrolling: touch;
@@ -72,7 +71,6 @@ body {
     font-family: "Montserrat", sans-serif;
     font-size: 14px;
     line-height: 1.42857143;
-    color: #333;
     background-color: #440376!important;
     overflow-x: hidden;
 
