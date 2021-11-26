@@ -53,7 +53,7 @@
                         <tr>
                             <td><img th:src="${article.url_image}" alt="" height="200px" width="200px"></td>
                             <td th:text="${article.description}"></td>
-                            <td th:text="${article.price}"></td>
+                            <td th:text="${article.price} + '€'"></td>
                         </tr>
                         </tbody>
                     </table>
