@@ -252,7 +252,7 @@ header {
 
 /* MAIN PAGE */
 /* ADD ATICLE PAGE */
-.plaisir-a-article {
+.plaisir-a-article, .plaisir-detail {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -310,7 +310,7 @@ header {
     font-size: 14px;
 }
 
-.plaisir-a-article > div > div {
+.plaisir-a-article > div > div, .plaisir-detail > div > div {
     background-color: whitesmoke;
     border-radius: 5px;
     padding: 20px;
@@ -323,6 +323,8 @@ header {
     position: relative;
     width: 50%;
 }
+
+.plaisir-detail
 
 /* FORM */
 .red {
@@ -529,4 +531,20 @@ nav ul li {
     list-style-type: none;
     margin: 0 20px;
     cursor: pointer;
+}
+
+.plaisir-a-detail {
+    background: #440376;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.plaisir-a-detail:hover {
+    color: white;
+}
+
+.plaisir-a-detail-navbar {
+    text-decoration: none;
 }
