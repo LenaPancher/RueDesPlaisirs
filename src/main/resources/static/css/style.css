@@ -513,6 +513,8 @@ label i {
 nav {
     display: flex;
     flex-direction: row;
+    margin-top: 80px;
+    position: relative;
     align-items: center;
     justify-content: center;
 }
